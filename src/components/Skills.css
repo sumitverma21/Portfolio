@@ -1,0 +1,143 @@
+#skills {
+  background-color: #f8f9fa;
+}
+
+.skills-container {
+  margin-top: 30px;
+}
+
+.skill-category {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: auto;
+  min-height: 300px;
+}
+
+.skill-category h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #007bff;
+  font-size: 1.5rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.skill-level {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.skill-bar {
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #007bff, #00b4ff);
+  border-radius: 5px;
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Swiper customization */
+.swiper {
+  padding: 20px 0 40px;
+}
+
+.swiper-pagination {
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
+}
+
+.swiper-pagination-bullet {
+  background-color: #007bff;
+  opacity: 0.3;
+  width: 12px;
+  height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #007bff;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #007bff;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .skill-category {
+    padding: 20px;
+  }
+
+  .skill-category h3 {
+    font-size: 1.3rem;
+  }
+
+  .skill-info {
+    font-size: 0.9rem;
+  }
+}

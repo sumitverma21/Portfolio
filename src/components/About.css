@@ -1,0 +1,67 @@
+#about {
+  background-color: #fff;
+}
+
+.about-content {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-text .btn {
+  margin-top: 20px;
+}
+
+/* Parallax effect */
+.parallax-image {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    gap: 30px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
