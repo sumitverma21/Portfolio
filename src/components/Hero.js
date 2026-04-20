@@ -12,10 +12,19 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <motion.div
+            className="badge"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <span>Full-Stack Developer</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
             Hi, I'm <span className="highlight">Sumit Verma</span>
           </motion.h1>
@@ -24,28 +33,40 @@ const Hero = () => {
             className="hero-subtitle"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Full-Stack & Backend Developer
+            Building scalable web applications with modern technologies
           </motion.p>
 
           <motion.p
             className="hero-description"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
           >
-            Full-Stack and Backend-focused undergraduate with hands-on experience in building scalable web applications, RESTful APIs, and AI-driven systems. Strong foundation in Python, JavaScript, databases, and system design.
+            I specialize in creating efficient, scalable web applications with a focus on backend systems
+            and RESTful APIs. Passionate about turning ideas into reality through clean, maintainable code.
           </motion.p>
 
           <motion.div
             className="hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
           >
-            <a href="#projects" className="btn primary">View My Work</a>
-            <a href="#contact" className="btn secondary">Contact Me</a>
+            <a href="#projects" className="btn primary">View Projects</a>
+            <a href="#contact" className="btn secondary">Get In Touch</a>
+          </motion.div>
+
+          <motion.div
+            className="social-links"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1 }}
+          >
+            <a href="#" aria-label="GitHub"><i className="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
           </motion.div>
         </motion.div>
 
@@ -53,13 +74,19 @@ const Hero = () => {
           className="hero-image"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
         >
-          {/* Profile image placeholder */}
           <div className="profile-placeholder">
-            <span>Profile Image</span>
+            <img src="/path-to-profile-image.jpg" alt="Sumit Verma" />
           </div>
         </motion.div>
+
+        {/* Scroll indicator */}
+        <div className="scroll-indicator">
+          <a href="#about">
+            <span></span>
+          </a>
+        </div>
       </div>
     </section>
   );

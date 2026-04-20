@@ -18,18 +18,42 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Add smooth scrolling to section function
+  const scrollToSection = (sectionId) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#hero" className="nav-logo">Sumit Verma</a>
 
+        {/* Desktop Navigation */}
+        <nav className="nav-desktop">
+          <ul>
+            <li><button onClick={() => scrollToSection('about')}>About</button></li>
+            <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
+            <li><button onClick={() => scrollToSection('projects')}>Projects</button></li>
+            <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
+            <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
+          </ul>
+        </nav>
+
+        {/* Mobile Navigation */}
         <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
-            <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
-            <li><a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a></li>
-            <li><a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a></li>
-            <li><a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a></li>
-            <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
+            <li><button onClick={() => scrollToSection('about')}>About</button></li>
+            <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
+            <li><button onClick={() => scrollToSection('projects')}>Projects</button></li>
+            <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
+            <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
           </ul>
         </div>
 

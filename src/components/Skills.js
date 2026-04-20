@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -67,6 +67,24 @@ const skillsData = [
 ];
 
 const Skills = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  // Flatten skills data for the grid view
+  const allSkills = skillsData.flatMap(category =>
+    category.skills.map(skill => ({
+      ...skill,
+      category: category.category
+    }))
+  );
+
+  // Get unique categories for filtering
+  const categories = ['all', ...new Set(skillsData.map(item => item.category.toLowerCase()))];
+
+  // Filter skills based on active category
+  const filteredSkills = activeCategory === 'all'
+    ? allSkills
+    : allSkills.filter(skill => skill.category.toLowerCase() === activeCategory);
+
   return (
     <section id="skills">
       <div className="container">
@@ -76,9 +94,52 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Skills
+          Technical Skills
         </motion.h2>
 
+        {/* Category filter buttons for grid view */}
+        <motion.div
+          className="skills-categories"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={activeCategory === category ? 'active' : ''}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Grid view for skills */}
+        <div className="skills-grid">
+          {filteredSkills.map((skill, index) => (
+            <motion.div
+              key={`${skill.name}-${index}`}
+              className="skill-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 * index, duration: 0.6 }}
+            >
+              <h3>{skill.name}</h3>
+              <div className="skill-bar">
+                <div
+                  className="skill-progress"
+                  style={{ width: `${skill.level}%` }}
+                ></div>
+              </div>
+              <span className="skill-level">{skill.level}%</span>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Original swiper view for detailed categories */}
         <div className="skills-container">
           <Swiper
             modules={[Navigation, Pagination]}

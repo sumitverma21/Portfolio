@@ -12,6 +12,12 @@ const projectsData = [
     image: '/src/assets/project1.jpg',
     demoLink: '#',
     githubLink: '#',
+    features: [
+      'Facial Recognition Pipeline',
+      'Secure Authentication',
+      'Real-time Processing',
+      'Database Optimization'
+    ]
   },
   {
     id: 2,
@@ -21,6 +27,12 @@ const projectsData = [
     image: '/src/assets/project2.jpg',
     demoLink: '#',
     githubLink: '#',
+    features: [
+      'Patient Records Management',
+      'Appointment Scheduling',
+      'Billing System',
+      'RESTful API Integration'
+    ]
   },
 ];
 
@@ -34,7 +46,7 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Projects
+          Featured Projects
         </motion.h2>
 
         <div className="projects-grid">
@@ -49,10 +61,23 @@ const Projects = () => {
             >
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
+                <div className="project-overlay">
+                  <span className="project-type">Full Stack</span>
+                </div>
               </div>
               <div className="project-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+
+                <div className="project-features">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    {project.features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div className="project-tech">
                   {project.technologies.map((tech, techIndex) => (
                     <span className="tech-tag" key={techIndex}>
@@ -62,16 +87,27 @@ const Projects = () => {
                 </div>
                 <div className="project-links">
                   <a href={project.demoLink} className="btn small">
-                    Live Demo
+                    <i className="fas fa-external-link-alt"></i> Live Demo
                   </a>
                   <a href={project.githubLink} className="btn small secondary">
-                    Source Code
+                    <i className="fab fa-github"></i> Source Code
                   </a>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className="projects-cta"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <p>Want to see more of my work?</p>
+          <a href="#contact" className="btn primary">View All Projects</a>
+        </motion.div>
       </div>
     </section>
   );

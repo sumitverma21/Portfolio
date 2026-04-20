@@ -50,16 +50,31 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <p>
-              Welcome to my portfolio! I'm a Full-Stack and Backend-focused undergraduate with hands-on experience in building scalable web applications, RESTful APIs, and AI-driven systems. Strong foundation in Python, JavaScript, databases, and system design.
+              Welcome to my portfolio! I'm a Full-Stack and Backend-focused developer with hands-on experience in building scalable web applications, RESTful APIs, and AI-driven systems. I have a strong foundation in Python, JavaScript, databases, and system design.
             </p>
 
             <p>
-              Currently pursuing my Bachelor of Engineering in Artificial Intelligence and Machine Learning at Visvesvaraya Technological University, I'm passionate about creating efficient and scalable web applications with a focus on backend systems.
+              Currently pursuing my Bachelor of Engineering in Artificial Intelligence and Machine Learning at Visvesvaraya Technological University, I'm passionate about creating efficient and scalable web applications with a focus on backend systems and distributed architectures.
             </p>
 
             <p>
-              I'm seeking a Full-Stack / Backend Intern role to contribute to production-grade software systems and further develop my skills in building robust applications.
+              I'm actively seeking a Full-Stack / Backend Intern role where I can contribute to production-grade software systems and further develop my skills in building robust, scalable applications.
             </p>
+
+            <div className="about-stats">
+              <div className="stat-item">
+                <h3>2+</h3>
+                <p>Years Experience</p>
+              </div>
+              <div className="stat-item">
+                <h3>10+</h3>
+                <p>Projects Completed</p>
+              </div>
+              <div className="stat-item">
+                <h3>5+</h3>
+                <p>Technologies Mastered</p>
+              </div>
+            </div>
 
             <a
               href="/src/assets/Sumit_Resume.pdf"
